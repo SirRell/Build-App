@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
-    Vector3 targetLocation = new Vector3(-2.5f, 1, -2.5f);
-    // Start is called before the first frame update
+    Vector3 targetLocation;
     void Start()
     {
-        
+        targetLocation = transform.position;
+        GameManager.OnCubeSpawned += SetNewPosition;
     }
-
     public void SetNewPosition()
     {
         targetLocation += Vector3.up * .2f;
